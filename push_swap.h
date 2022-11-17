@@ -7,6 +7,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_stack
 {
@@ -18,6 +21,7 @@ typedef struct s_stack
 
 int main(int argc, char const *argv[]);
 const char **check_args(int argc, char const **argv);
-const char **make_char_arry(int argc,char const **argv);
+void free_str_num(char **str, size_t index, long *num);
+// const char **make_char_arry(int argc,char const **argv);
 
 #endif
