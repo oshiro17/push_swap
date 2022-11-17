@@ -5,6 +5,7 @@ void free_str_num(char **str, size_t index, long *num)
 {
     size_t  i;
 
+    i = 0;
     if (index == 0)
     {   
         while(str[i])
