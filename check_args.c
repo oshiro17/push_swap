@@ -34,13 +34,16 @@ bool    check_isnum(const char **str, size_t index)
     {
         j = 0;
         if (str[index][j] == '-' || str[index][j] == '+')
-            j++;
+		{
+			if(str[index][j + 1] == '-' || str[index][j+1] == '+' || str[index][j+1] == '0')
+				return (false);
+			j++;
+		}
         while (str[index][j])
+		
         {
             if (str[index][j] < '0' || '9' < str[index][j])
-            {
                 return (false);
-            }
             j++;
         }
         index++;
