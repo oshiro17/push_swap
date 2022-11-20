@@ -96,7 +96,7 @@ const char **check_args(size_t index, char const **argv)
 	if (index == 0)
 	{
 		str = (const char **)ft_split(argv[1], ' ');
-		if (!str)
+		if (!str || !(str[1]))
         {   
 			ft_putstr_fd("Error\n", 2);
 		    exit(1);
