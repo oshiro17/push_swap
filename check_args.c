@@ -89,14 +89,11 @@ void    check_str(const char **str, size_t index)
 	return ;
 }
 
-const char **check_args(int argc, char const **argv)
+const char **check_args(size_t index, char const **argv)
 {
 	const char	**str;
-    size_t      index;
 
-	if (argc < 2)
-		exit(1);
-	else if (argc == 2)
+	if (index == 0)
 	{
 		str = (const char **)ft_split(argv[1], ' ');
 		if (!str)
@@ -104,13 +101,9 @@ const char **check_args(int argc, char const **argv)
 			ft_putstr_fd("Error\n", 2);
 		    exit(1);
         }
-        index = 0;
 	}
 	else
-    {
-        str = argv;
-        index = 1;
-    }
+		str = argv;
     check_str(str, index);
 	return (str);
 }

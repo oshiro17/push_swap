@@ -20,8 +20,9 @@ typedef struct s_stack
 }              t_stack;
 
 int main(int argc, char const *argv[]);
-const char **check_args(int argc, char const **argv);
+const char **check_args(size_t index, char const **argv);
 void free_str_num(char **str, size_t index, long *num);
-// const char **make_char_arry(int argc,char const **argv);
+// void	put_stack(size_t index, const char **str, t_stack **stack);
+// const char **make_char_arry(size_t index,char const **argv);
 
 #endif
