@@ -2,7 +2,8 @@ SRCS		=	check_args.c	\
 				main.c	\
 				make_char_arry.c	\
 				scan_num.c\
-				free_exit.c
+				free_exit.c\
+				put_stack.c\
 
 OBJS		=	$(SRCS:%.c=%.o)
 

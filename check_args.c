@@ -40,7 +40,7 @@ bool    check_isnum(const char **str, size_t index)
 			j++;
 		}
         while (str[index][j])
-		
+
         {
             if (str[index][j] < '0' || '9' < str[index][j])
                 return (false);
@@ -72,22 +72,22 @@ void    check_str(const char **str, size_t index)
 	i = 0;
     arry_num = count_arry(str, index);
     if(!check_isnum(str, index))
-        free_str_num((char **)str,index,NULL);
+        error_free_str_num((char **)str,index,NULL);
     num = malloc(sizeof(long) * arry_num);
 	if (!num)
-		free_str_num((char **)str,index,NULL);
+		error_free_str_num((char **)str,index,NULL);
     while(str[index])
     {
 		// printf("%s\n",str[index]);
         num[i] = ft_atol(str[index]);
 			// printf("%s\n",str[index]);
         if (num[i] >= INT_MAX || num[i] <= INT_MIN)
-        	free_str_num((char **)str,index,num);
+        	error_free_str_num((char **)str,index,num);
         i++;
         index++;
     }
     if(!check_isdup(num,arry_num))
-		free_str_num((char **)str, index, NULL);
+		error_free_str_num((char **)str, index, NULL);
 	free(num);
 	return ;
 }

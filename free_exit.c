@@ -1,7 +1,7 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-void free_str_num(char **str, size_t index, long *num)
+void error_free_str_num(char **str, size_t index, long *num)
 {
     size_t  i;
 
