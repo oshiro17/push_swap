@@ -92,10 +92,19 @@ void    check_str(const char **str, size_t index)
 	return ;
 }
 
-const char **check_args(size_t index, char const **argv)
+const char **check_args(int argc, char const **argv)
 {
 	const char	**str;
 
+	size_t		index;
+
+	if (argc < 2)
+		exit(1);
+	else if (argc == 2)
+		index = 0;
+	else
+		index = 1;
+	
 	if (index == 0)
 	{
 		str = (const char **)ft_split(argv[1], ' ');

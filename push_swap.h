@@ -19,10 +19,11 @@ typedef struct s_stack
 	struct s_stack	*previous;
 }              t_stack;
 
-int main(int argc, char const *argv[]);
-const char **check_args(size_t index, char const **argv);
-void error_free_str_num(char **str, size_t index, long *num);
+int		main(int argc, char const *argv[]);
+const char	**check_args(int i, char const **argv);
+void	error_free_str_num(char **str, size_t index, long *num);
+// void	coordinate_compression(argc, str, &stack_a);
 void	put_stack(size_t index, char **str, t_stack **stack);
-// const char **make_char_arry(size_t index,char const **argv);
+const char **make_char_arry(size_t index,char const **argv);
 
 #endif

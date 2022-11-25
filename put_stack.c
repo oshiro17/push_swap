@@ -14,7 +14,6 @@ void	put_stack(size_t index, char **str, t_stack **stack)
 {
     t_stack		*tmp;
 	t_stack		*last;
-
     while (str[index])
     {
 		tmp = malloc(sizeof(t_stack));
