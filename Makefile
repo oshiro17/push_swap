@@ -2,6 +2,7 @@ SRCS		=	check_args.c	\
 				main.c	\
 				make_char_arry.c	\
 				free_exit.c\
+				coordinate_compression.c\
 				# put_stack.c\
 				# scan_num.c\
 

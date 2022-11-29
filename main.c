@@ -5,11 +5,15 @@ int	main(int argc, char const *argv[])
 {
 	// t_stack		*stack_a;
 //	t_stack		*stack_b;
-    const char		**str;
+	const char		**str;
 	// size_t      index;
-	int		i;
+	// int		i;
+	// int 	k;
+	// int		*num;
 
-	i = 0;
+
+	// k=0;
+	// i = 0;
 	// if (argc < 2)
 	// 	exit(1);
 	// else if (argc == 2)
@@ -18,15 +22,16 @@ int	main(int argc, char const *argv[])
 	// 	index = 1;
 	str = check_args(argc, argv);
 
-// to_check
-  	while(str[i])
-	{
-		printf("%s\n",str[i]);
-		i++;
-	}
-//to_check
-// coordinate_compression(argc, (char **)str, &stack_a);
 
+ coordinate_compression(argc, str);
+// to_check
+  	// while(k < 10)
+	// {
+	// 	printf("%d\n",num[i]);
+	// 	i++;
+	// 	k++;
+	// }
+//to_check
 
 // 	put_stack(argc, (char **)str, &stack_a);
 
