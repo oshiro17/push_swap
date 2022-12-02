@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:40:49 by panti             #+#    #+#             */
-/*   Updated: 2022/12/02 18:08:15 by panti            ###   ########.fr       */
+/*   Updated: 2022/12/02 20:10:09 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	*compression(int *num,int elem)
 	int *new_num;
 
 	new_num = malloc(sizeof(int)*elem);
+	if(!new_num)
+		return(NULL);
 	number = 0;
 	i = 0;
 	while(i < elem)
@@ -51,7 +53,9 @@ int *str_to_num(int argc,const char **str,int elem)
 		index = 0;
 	else
 		index = 1;
-	num = malloc(sizeof(int) * (size_t)elem);	
+	num = malloc(sizeof(int) * (size_t)elem);
+		if (!num)
+			return (NULL);
 	k = 0;
 	while(str[index])
 	{
@@ -78,7 +82,11 @@ void	coordinate_compression(int argc, const char **str)
 	else
 		elem = argc - 1;
 	num = str_to_num(argc,str,elem);
+	if(!num)
+		error_free_str_num(str,index,NULL);
+	free(str);
 	num = compression(num,elem);
+	
 	i = 0;
 	while(i<elem)
 	{
