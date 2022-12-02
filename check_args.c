@@ -81,7 +81,7 @@ void    check_str(const char **str, size_t index)
 		// printf("%s\n",str[index]);
         num[i] = ft_atol(str[index]);
 			// printf("%s\n",str[index]);
-        if (num[i] > INT_MAX || num[i] < INT_MIN)
+        if (num[i] >= INT_MAX || num[i] <= INT_MIN)
         	error_free_str_num((char **)str,index,num);
         i++;
         index++;
