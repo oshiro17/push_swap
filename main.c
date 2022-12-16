@@ -10,7 +10,7 @@ int	main(int argc, char const *argv[])
 	data.str = NULL;
 	data.subject_num = NULL;
 	if (data.argc < 2)
-		exit(1);
+		error_free_str_num(&data);
 	else if (data.argc == 2)
 		data.index = 0;
 	else
