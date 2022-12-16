@@ -1,20 +1,17 @@
 #include "push_swap.h"
 #include "libft/libft.h"
 
-
-// void	free_exit()
-
 //同じ数字がないかどうか
-bool	check_isdup(long *num, size_t arry_num)
+bool	check_isdup(long *num, size_t arry_count)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	while (i < arry_num)
+	while (i < arry_count)
 	{
 		j = 1;
-		while ((i + j) < arry_num)
+		while ((i + j) < arry_count)
 		{
 		if (num[i] == num[i + j])
 			return (false);
@@ -26,23 +23,25 @@ bool	check_isdup(long *num, size_t arry_num)
 }
 
 //数字かどうか
-bool    check_isnum(const char **str, size_t index)
+bool    check_isnum(t_data *data)
 {
     size_t  j;
+	int	index;
 
-    while (str[index])
+	index = data->index;
+    while (data->str[index])
     {
         j = 0;
-        if (str[index][j] == '-' || str[index][j] == '+')
+        if (data->str[index][j] == '-' || data->str[index][j] == '+')
 		{
-			if(str[index][j + 1] == '-' || str[index][j+1] == '+' || str[index][j+1] == '0')
+			if(data->str[index][j + 1] == '-' || data->str[index][j+1] == '+' || data->str[index][j+1] == '0')
 				return (false);
 			j++;
 		}
-        while (str[index][j])
+        while (data->str[index][j])
 
         {
-            if (str[index][j] < '0' || '9' < str[index][j])
+            if (data->str[index][j] < '0' || '9' < data->str[index][j])
                 return (false);
             j++;
         }
@@ -51,86 +50,84 @@ bool    check_isnum(const char **str, size_t index)
     return (true);
 }
 
-static size_t	count_arry(const char **str, size_t index)
+void	count_arry(t_data *data)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (str[i])
+	while (data->str[i])
 		i++;
-	i = i - index;
-	return (i);
+	data->arry_count = i - data->index;
 }
+
 //intの範囲?数字？同じ数字ない？
-void    check_str(const char **str, size_t index)
+void    check_str(t_data *data)
 {
-    size_t      arry_num;
     long        *num;
 	size_t		i;
+	int			index;
 
-
+	index = data->index;
 	i = 0;
-    arry_num = count_arry(str, index);
-    if(!check_isnum(str, index))
-        error_free_str_num((char **)str,index,NULL);
-    num = malloc(sizeof(long) * arry_num);
+    count_arry(data);
+    if(!check_isnum(data))
+        error_free_str_num(data);
+    num = malloc(sizeof(long) * data->arry_count);
 	if (!num)
-		error_free_str_num((char **)str,index,NULL);
-    while(str[index])
+		error_free_str_num(data);
+    while(data->str[index])
     {
-		// printf("%s\n",str[index]);
-        num[i] = ft_atol(str[index]);
-			// printf("%s\n",str[index]);
+        num[i] = ft_atol(data->str[index]);
         if (num[i] >= INT_MAX || num[i] <= INT_MIN)
-        	error_free_str_num((char **)str,index,num);
-        i++;
+        {
+			free(num);
+			error_free_str_num(data);
+		}
+		i++;
         index++;
     }
-    if(!check_isdup(num,arry_num))
-		error_free_str_num((char **)str, index, NULL);
+    if(!check_isdup(num,data->arry_count))
+		error_free_str_num(data);
 	free(num);
 	return ;
 }
 
-const char **check_args(int argc, char const **argv)
+void make_number_arry(t_data *data)
 {
-	const char	**str;
-
-	size_t		index;
-
-	if (argc < 2)
-		exit(1);
-	else if (argc == 2)
-		index = 0;
-	else
-		index = 1;
-	
-	if (index == 0)
+	if (data->index == 0)
 	{
-		str = (const char **)ft_split(argv[1], ' ');
-		if (!str || !(str[1]))
+		data->str = (const char **)ft_split(data->argv[1], ' ');
+		if (!data->str || !(data->str[1]))
         {   
 			ft_putstr_fd("Error\n", 2);
 		    exit(1);
         }
 	}
 	else
-		str = argv;
-    check_str(str, index);
-	return (str);
+		data->str = (char const**)data->argv;
+    check_str(data);
+	return ;
 }
 
-// gcc check_args.c libft/ft_atol.c libft/ft_putstr_fd.c free_exit.c libft/ft_putchar_fd.c libft/ft_split.c libft/ft_substr.c libft/ft_strlen.c
+// // gcc check_args.c libft/ft_atol.c libft/ft_putstr_fd.c free_exit.c libft/ft_putchar_fd.c libft/ft_split.c libft/ft_substr.c libft/ft_strlen.c
 // int main(int argc, char const *argv[])
 // {
-// 	char **str;
-// 	int	i;
+// 	t_data data;
+// 	int i;
 
 // 	i = 0;
-// 	str = (char **)(check_args(argc, argv));
-// 	while(str[i])
+// 	data.argc = argc;
+// 	data.argv = (char **)argv;
+// 	if (data.argc < 2)
+// 		exit(1);
+// 	else if (data.argc == 2)
+// 		data.index = 0;
+// 	else
+// 		data.index = 1;
+// 	check_args(&data);
+// 	while(data.str[i])
 // 	{
-// 		printf("%s\n",str[i]);
+// 		printf("%s\n",data.str[i]);
 // 		i++;
 // 	}
 // 	return(0);

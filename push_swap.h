@@ -11,6 +11,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct s_data
+{
+	int			argc;
+	char		**argv;
+	int			index;
+	const char	**str;
+	int			arry_count;
+	int			*subject_num;
+}	t_data;
+
+
 typedef struct s_stack
 {
 	int				num;
@@ -19,10 +30,11 @@ typedef struct s_stack
 	struct s_stack	*previous;
 }              t_stack;
 
+void	free_char_arry(char **str);
 int		main(int argc, char const *argv[]);
-const char	**check_args(int i, char const **argv);
-void	error_free_str_num(char **str, size_t index, long *num);
-void	coordinate_compression(int argc, const char **str);
+void	make_number_arry(t_data *data);
+void	error_free_str_num(t_data *data);
+void	coordinate_compression(t_data *data);
 void	put_stack(size_t index, char **str, t_stack **stack);
 const char **make_char_arry(size_t index,char const **argv);
 

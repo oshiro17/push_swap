@@ -3,11 +3,23 @@
 
 int	main(int argc, char const *argv[])
 {
-	const char	**str;
+	t_data	data;
 
-	str = check_args(argc, argv);
-	coordinate_compression(argc, str);
-// 	put_stack(argc, (char **)str, &stack_a);
+	data.argc = argc;
+	data.argv = (char **)argv;
+	data.str = NULL;
+	data.subject_num = NULL;
+	if (data.argc < 2)
+		exit(1);
+	else if (data.argc == 2)
+		data.index = 0;
+	else
+		data.index = 1;
+	make_number_arry(&data);
+	printf("str[0]:%s\n",data.str[0]);
+	printf("arry_count:%d\n",data.arry_count);
+	coordinate_compression(&data);
+	// 	put_stack(argc, (char **)str, &stack_a);
 
     return (0);
 }
