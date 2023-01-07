@@ -35,7 +35,7 @@ int		main(int argc, char const *argv[]);
 void	make_number_arry(t_data *data);
 void	error_free_str_num(t_data *data);
 void	coordinate_compression(t_data *data);
-void put_stack(t_data *data, t_stack **a_stack)
+void put_stack(t_data *data, t_stack **a_stack);
 const char **make_char_arry(size_t index,char const **argv);
 
 #endif
