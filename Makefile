@@ -3,7 +3,7 @@ SRCS		=	check_args.c	\
 				make_char_arry.c	\
 				free_exit.c\
 				coordinate_compression.c\
-				# put_stack.c\
+				put_stack.c\
 				# scan_num.c\
 
 OBJS		=	$(SRCS:%.c=%.o)

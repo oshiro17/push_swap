@@ -4,6 +4,8 @@
 int	main(int argc, char const *argv[])
 {
 	t_data	data;
+	t_stack *a_stack;
+	// t_stack *b_stack;
 
 	data.argc = argc;
 	data.argv = (char **)argv;
@@ -15,11 +17,8 @@ int	main(int argc, char const *argv[])
 		data.index = 0;
 	else
 		data.index = 1;
-	make_number_arry(&data);
-	printf("str[0]:%s\n",data.str[0]);
-	printf("arry_count:%d\n",data.arry_count);
+	check_argc_argv(&data);
 	coordinate_compression(&data);
-	// 	put_stack(argc, (char **)str, &stack_a);
-
+	put_stack(&data, &a_stack);
     return (0);
 }
