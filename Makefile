@@ -4,6 +4,7 @@ SRCS		=	check_args.c	\
 				free_exit.c\
 				coordinate_compression.c\
 				put_stack.c\
+				sort_stack.c\
 				# scan_num.c\
 
 OBJS		=	$(SRCS:%.c=%.o)

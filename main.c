@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
-/*   Updated: 2023/01/07 20:25:40 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/08 21:13:01 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char const *argv[])
 {
 	t_data	data;
 	t_stack *a_stack;
+	t_stack *b_stack;
 	// t_stack *b_stack;
 
 	data.argc = argc;
@@ -32,5 +33,6 @@ int	main(int argc, char const *argv[])
 	make_number_arry(&data);
 	coordinate_compression(&data);
 	put_stack(&data, &a_stack);
+	sort_stack(&data, &a_stack, &b_stack);
     return (0);
 }

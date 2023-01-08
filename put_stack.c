@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:43:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/07 19:24:33 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/08 23:29:14 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ t_stack *ft_lstnew(int num)
 void put_stack(t_data *data, t_stack **a_stack)
 {
 	t_stack *tmp;
-	t_stack *last;
+	t_stack *nil;
 	int		i;
 
 	tmp = NULL;
-	last = ft_lstnew(-1);
+	nil = ft_lstnew(-1);
 	i = 0;
-
+	ft_lstadd_back(a_stack, nil);
 	while(i < data->arry_count)
 	{
 		tmp = ft_lstnew(data->subject_num[i]);
@@ -69,14 +69,15 @@ void put_stack(t_data *data, t_stack **a_stack)
 
 		i++;
 	}
-	ft_lstadd_back(a_stack, last);
-	last->next = *a_stack;
-	(*a_stack)->previous = last;
+	nil->previous = ft_lstlast(*a_stack);
+	(ft_lstlast(*a_stack))->next= nil;
 	tmp = *a_stack;
-	while(tmp)
-	{
-		printf("%d\n",tmp->num);
-		tmp = tmp->previous;
-	}
+	// printf("=====%d\n",tmp->num);
+	// printf("=====%d\n",tmp->next->num);
+	// while(tmp->next->num != -1)
+	// {
+	// 	tmp = tmp->next;
+	// 	printf("%d\n",tmp->num);
+	// }
 	return;
 }
