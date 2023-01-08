@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
+/*   Updated: 2023/01/07 20:25:40 by panti            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include "push_swap.h"
 
@@ -17,7 +29,7 @@ int	main(int argc, char const *argv[])
 		data.index = 0;
 	else
 		data.index = 1;
-	check_argc_argv(&data);
+	make_number_arry(&data);
 	coordinate_compression(&data);
 	put_stack(&data, &a_stack);
     return (0);
