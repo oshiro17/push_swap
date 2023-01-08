@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:40:49 by panti             #+#    #+#             */
-/*   Updated: 2022/12/16 22:02:20 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/08 23:48:49 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,7 @@ void str_to_num(t_data *data)
 
 void	coordinate_compression(t_data *data)
 {
-	int i=0;
 	str_to_num(data);
 	compression(data);
-	while(i++<data->arry_count)
-		printf("%d",data->subject_num[i]);
-	printf("\n");
-	printf("%p",(char *)data->str[0]);
 	return;
 }
