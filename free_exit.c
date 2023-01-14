@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:40:18 by panti             #+#    #+#             */
-/*   Updated: 2022/12/16 21:46:33 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/13 21:53:36 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void free_char_arry(char **str)
 
 void error_free_str_num(t_data *data)
 {
-    if (data->str || data->index == 0)
+    if (data->str && data->index == 0)
         free_char_arry((char**)data->str);
     if(data->subject_num)
         free(data->subject_num);

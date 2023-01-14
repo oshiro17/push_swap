@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:40:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/08 23:48:49 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/14 16:35:40 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void compression(t_data *data)
 	int	i;
 	int j;
 	int number;
-	int *new_num;
+	long *new_num;
 
-	new_num = malloc(sizeof(int) * data->arry_count);
+	new_num = malloc(sizeof(long) * data->arry_count);
 	if(!new_num)
 		error_free_str_num(data);
 	number = 0;
@@ -39,7 +39,6 @@ void compression(t_data *data)
 		i++;
 	}
 	data->subject_num = new_num;
-	free(new_num);
 }
 
 void str_to_num(t_data *data)
@@ -48,7 +47,7 @@ void str_to_num(t_data *data)
 	int i;
 
 	index = data->index;
-	data->subject_num = (int *)malloc(sizeof(int) * data->arry_count);
+	data->subject_num = (long *)malloc(sizeof(int) * data->arry_count);
 		if (!data->subject_num)
 			error_free_str_num(data);
 	i = 0;

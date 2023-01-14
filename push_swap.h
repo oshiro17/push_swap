@@ -18,7 +18,7 @@ typedef struct s_data
 	int			index;
 	const char	**str;
 	int			arry_count;
-	int			*subject_num;
+	long		*subject_num;
 }	t_data;
 
 
@@ -35,8 +35,8 @@ int		main(int argc, char const *argv[]);
 void	make_number_arry(t_data *data);
 void	error_free_str_num(t_data *data);
 void	coordinate_compression(t_data *data);
-void put_stack(t_data *data, t_stack **a_stack);
+void put_stack(t_data data, t_stack **a_stack);
 const char **make_char_arry(size_t index,char const **argv);
-void sort_stack(t_data *data, t_stack **a_stack, t_stack **b_stack);
-
+void sort_stack(t_stack **a_stack, t_stack **b_stack);
+t_stack *ft_lstnew(int num);
 #endif
