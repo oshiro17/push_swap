@@ -97,11 +97,13 @@ void make_number_arry(t_data *data)
 	if (data->index == 0)
 	{
 		data->str = (const char **)ft_split(data->argv[1], ' ');
-		if (!data->str || !(data->str[1]))
+		if (!data->str||!data->str[0])
         {   
 			ft_putstr_fd("Error\n", 2);
 		    exit(1);
         }
+			if(!(data->str[1]))
+			exit(1);
 	}
 	else
 		data->str = (char const**)data->argv;
