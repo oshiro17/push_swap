@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:34:54 by panti             #+#    #+#             */
-/*   Updated: 2023/01/25 12:38:39 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/25 12:47:17 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ void    sort3(t_stack **node, int num)
 				ra(node,'a');
 		}
 	}
+	(*node)->next->num = (*node)->next->num + min;	
+	(*node)->next->next->num = (*node)->next->next->num + min;	
+	(*node)->next->next->next->num = (*node)->next->next->next->num + min;	
 }
 
 void sort6(t_stack **a, t_stack **b)
