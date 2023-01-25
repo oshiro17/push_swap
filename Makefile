@@ -1,11 +1,11 @@
 SRCS		=	check_args.c	\
 				main.c	\
-				make_char_arry.c	\
 				free_exit.c\
 				coordinate_compression.c\
 				put_stack.c\
 				sort_stack.c\
-				# scan_num.c\
+				sort.c\
+				redix_sort.c\
 
 OBJS		=	$(SRCS:%.c=%.o)
 

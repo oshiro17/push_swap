@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:43:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/14 16:30:22 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/24 21:33:36 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void put_stack(t_data data, t_stack **a_stack)
 	while(i < data.arry_count)
 	{
 		tmp = ft_lstnew(data.subject_num[i]);
-		// printf("data->subjectnum:%ld\n",data.subject_num[i]);
-		// printf("tmp->num:%d\n",tmp->num);
 		if (!tmp)
 			error_free_str_num(&data);
 		ft_lstadd_back(a_stack, tmp);
@@ -71,12 +69,5 @@ void put_stack(t_data data, t_stack **a_stack)
 	(*a_stack)->previous = ft_lstlast(*a_stack);
 	(ft_lstlast(*a_stack))->next= (*a_stack);
 	tmp = *a_stack;
-	// printf("=====%d\n",tmp->num);
-	// printf("=====%d\n",tmp->next->num);
-	// while(tmp->next->num != -)
-	// {
-	// 	tmp = tmp->next;
-	// 	printf("%d\n",tmp->num);
-	// }
 	return;
 }
