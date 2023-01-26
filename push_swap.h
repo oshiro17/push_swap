@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:34:58 by panti             #+#    #+#             */
-/*   Updated: 2023/01/24 21:48:21 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 04:26:57 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_data
 typedef struct s_stack
 {
 	int				num;
-	long			index;
 	struct s_stack	*next;
 	struct s_stack	*previous;
 }              t_stack;

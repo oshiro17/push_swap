@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:34:54 by panti             #+#    #+#             */
-/*   Updated: 2023/01/26 23:23:37 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 04:31:04 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,57 +25,57 @@ int count_node (t_stack **node)
     }
     return(i);
 }
-void    resort3(t_stack **node, int arry_num)
-{
-	int min;
+// void    resort3(t_stack **node, int arry_num)
+// {
+// 	int min;
 
-	min= (*node)->next->num;
-	if((*node)->next->next->num < min)
-		min = (*node)->next->next->num;
-	if (arry_num ==3)
-	{
-		if((*node)->next->next->next->num < min)
-		{	
-			min = (*node)->next->next->next->num;
-			(*node)->next->next->next->num = (*node)->next->next->next->num - min;	
-		}
-	}
-	(*node)->next->num = (*node)->next->num - min;	
-	(*node)->next->next->num = (*node)->next->next->num - min;	
-	if (arry_num == 2)
-	{
-		if ((*node)->next->num == 0)
-			sa(node,'a');
-	}
-	if(arry_num == 3)
-	{
-		if((*node)->next->num == 1)
-		{
-			if ((*node)->next->next->num == 2)
-				sa(node,'a');
-			if((*node)->next->next->num == 0)
-				rra(node,'a');
-		}
-		if((*node)->next->num == 2)
-		{
-			if((*node)->next->next->num == 0)
-			{
-				sa(node,'a');
-				ra(node,'a');
-			}
-		}
-		if((*node)->next->num == 0)
-		{
-			if((*node)->next->next->num == 1)
-			{
-				sa(node,'a');
-				rra(node,'a');
-			}
-			if((*node)->next->next->num == 2)
-				ra(node,'a');
-		}
-	}
-}
+// 	min= (*node)->next->num;
+// 	if((*node)->next->next->num < min)
+// 		min = (*node)->next->next->num;
+// 	if (arry_num ==3)
+// 	{
+// 		if((*node)->next->next->next->num < min)
+// 		{	
+// 			min = (*node)->next->next->next->num;
+// 			(*node)->next->next->next->num = (*node)->next->next->next->num - min;	
+// 		}
+// 	}
+// 	(*node)->next->num = (*node)->next->num - min;	
+// 	(*node)->next->next->num = (*node)->next->next->num - min;	
+// 	if (arry_num == 2)
+// 	{
+// 		if ((*node)->next->num == 0)
+// 			sa(node,'a');
+// 	}
+// 	if(arry_num == 3)
+// 	{
+// 		if((*node)->next->num == 1)
+// 		{
+// 			if ((*node)->next->next->num == 2)
+// 				sa(node,'a');
+// 			if((*node)->next->next->num == 0)
+// 				rra(node,'a');
+// 		}
+// 		if((*node)->next->num == 2)
+// 		{
+// 			if((*node)->next->next->num == 0)
+// 			{
+// 				sa(node,'a');
+// 				ra(node,'a');
+// 			}
+// 		}
+// 		if((*node)->next->num == 0)
+// 		{
+// 			if((*node)->next->next->num == 1)
+// 			{
+// 				sa(node,'a');
+// 				rra(node,'a');
+// 			}
+// 			if((*node)->next->next->num == 2)
+// 				ra(node,'a');
+// 		}
+// 	}
+// }
 void    sort3(t_stack **node, int arry_num)
 {
 	int min;

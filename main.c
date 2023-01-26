@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
-/*   Updated: 2023/01/26 23:20:54 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 04:31:25 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char const *argv[])
 		// printf("{main;%d\n}",tmp->num);
 		tmp = tmp->next;
 	}
-	// // system("leaks -q push_swap");
+	// system("leaks -q push_swap");
     return (0);
 
 }
