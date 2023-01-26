@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coordinate_compression.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:40:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/14 16:35:40 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 04:51:34 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void str_to_num(t_data *data)
 	int i;
 
 	index = data->index;
-	data->subject_num = (long *)malloc(sizeof(int) * data->arry_count);
+	data->subject_num = (long *)malloc(sizeof(long) * data->arry_count);
 		if (!data->subject_num)
 			error_free_str_num(data);
 	i = 0;
