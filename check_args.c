@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/27 04:55:06 by noshiro           #+#    #+#             */
+/*   Updated: 2023/01/27 05:20:22 by noshiro          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include "libft/libft.h"
+
 
 //同じ数字がないかどうか
 bool	check_isdup(long *num, size_t arry_count)
@@ -71,23 +83,20 @@ void    check_str(t_data *data)
 	i = 0;
     count_arry(data);
     if(!check_isnum(data))
-        error_free_str_num(data);
+        error_exit();
     num = malloc(sizeof(long) * data->arry_count);
 	if (!num)
-		error_free_str_num(data);
+		error_exit();
     while(data->str[index])
     {
         num[i] = ft_atol(data->str[index]);
         if (num[i] >= INT_MAX || num[i] <= INT_MIN)
-        {
-			free(num);
-			error_free_str_num(data);
-		}
+			error_exit();
 		i++;
         index++;
     }
     if(!check_isdup(num,data->arry_count))
-		error_free_str_num(data);
+		error_exit();
 	free(num);
 	return ;
 }
@@ -97,12 +106,9 @@ void make_number_arry(t_data *data)
 	if (data->index == 0)
 	{
 		data->str = (const char **)ft_split(data->argv[1], ' ');
-		if (!data->str||!data->str[0])
-        {   
-			ft_putstr_fd("Error\n", 2);
-		    exit(1);
-        }
-			if(!(data->str[1]))
+		if (!data->str)
+			error_exit();
+		if(!data->str[0] || !data->str[1])
 			exit(1);
 	}
 	else
@@ -110,49 +116,3 @@ void make_number_arry(t_data *data)
     check_str(data);
 	return ;
 }
-
-// // gcc check_args.c libft/ft_atol.c libft/ft_putstr_fd.c free_exit.c libft/ft_putchar_fd.c libft/ft_split.c libft/ft_substr.c libft/ft_strlen.c
-// int main(int argc, char const *argv[])
-// {
-// 	t_data data;
-// 	int i;
-
-// 	i = 0;
-// 	data.argc = argc;
-// 	data.argv = (char **)argv;
-// 	if (data.argc < 2)
-// 		exit(1);
-// 	else if (data.argc == 2)
-// 		data.index = 0;
-// 	else
-// 		data.index = 1;
-// 	check_args(&data);
-// 	while(data.str[i])
-// 	{
-// 		printf("%s\n",data.str[i]);
-// 		i++;
-// 	}
-// 	return(0);
-// }
-
-
-// int main(int argc, char const *argv[])
-// {
-//     const char    **str;
-
-//     str = malloc(sizeof(char *) * 6);
-//     for (int i = 0; i < 6; i++)
-//     {
-//         str[i] = malloc(sizeof(char) * 10);
-//     }
-//     str[5] = NULL;
-    
-//     strcpy((char *)str[0], "a");
-//     strcpy((char *)str[1], "+1");
-//     strcpy((char *)str[2], "2");
-//     strcpy((char *)str[3], "-3");
-//     strcpy((char *)str[4], "4");
-//     printf("%d\n", check_isnum(str, 0));
-//     return 0;
-// }
-

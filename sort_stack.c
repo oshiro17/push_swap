@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:21:43 by panti             #+#    #+#             */
-/*   Updated: 2023/01/26 18:13:11 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 04:54:41 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
 void rra(t_stack **a, char spell)

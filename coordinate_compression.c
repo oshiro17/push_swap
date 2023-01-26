@@ -6,12 +6,11 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:40:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/27 04:51:34 by noshiro          ###   ########.fr       */
+/*   Updated: 2023/01/27 06:18:07 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 void compression(t_data *data)
 {
@@ -22,7 +21,7 @@ void compression(t_data *data)
 
 	new_num = malloc(sizeof(long) * data->arry_count);
 	if(!new_num)
-		error_free_str_num(data);
+		error_exit();
 	number = 0;
 	i = 0;
 	while(i < data->arry_count)
@@ -38,6 +37,7 @@ void compression(t_data *data)
 		number = 0;
 		i++;
 	}
+	free(data->subject_num);
 	data->subject_num = new_num;
 }
 
@@ -48,8 +48,8 @@ void str_to_num(t_data *data)
 
 	index = data->index;
 	data->subject_num = (long *)malloc(sizeof(long) * data->arry_count);
-		if (!data->subject_num)
-			error_free_str_num(data);
+	if (!data->subject_num)
+		error_exit();
 	i = 0;
 	while(data->str[index])
 	{

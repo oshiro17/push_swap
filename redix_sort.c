@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   redix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:34:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/24 21:47:12 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 04:54:44 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void radix_sort(t_stack **a, t_stack **b, int node_num)
 {
 	int digit;

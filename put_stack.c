@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   put_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:43:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/24 21:33:36 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 06:27:55 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 t_stack	*ft_lstlast(t_stack *lst)
 {
@@ -61,13 +60,13 @@ void put_stack(t_data data, t_stack **a_stack)
 	{
 		tmp = ft_lstnew(data.subject_num[i]);
 		if (!tmp)
-			error_free_str_num(&data);
+			error_exit();
 		ft_lstadd_back(a_stack, tmp);
-
 		i++;
 	}
 	(*a_stack)->previous = ft_lstlast(*a_stack);
 	(ft_lstlast(*a_stack))->next= (*a_stack);
 	tmp = *a_stack;
+	free(data.subject_num);
 	return;
 }
