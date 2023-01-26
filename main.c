@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
-/*   Updated: 2023/01/24 22:02:44 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/26 23:20:54 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,21 @@ int	main(int argc, char const *argv[])
 		data.index = 1;
 	make_number_arry(&data);
 	coordinate_compression(&data);
-	put_stack(data, &a_stack);
-	
-	t_stack *tmp;
-	int i = 0;
+	put_stack(data, &a_stack);	
+	t_stack *tmp ;
+	tmp = a_stack;
+	while(tmp->next->num != -1)
+	{
+		// printf("{main;%d\n}",tmp->num);
+		tmp = tmp->next;
+	}
 	sort(&a_stack, &b_stack);
-	i = 0;
-	tmp = (a_stack);
-    while(i < data.arry_count+1)
-    {
-        printf("{main}%d\n",(tmp)->num);
-        tmp=tmp->next;
-        i++;
-    }
+	tmp = a_stack;
+	while(tmp->next->num != -1)
+	{
+		// printf("{main;%d\n}",tmp->num);
+		tmp = tmp->next;
+	}
 	// // system("leaks -q push_swap");
     return (0);
 
