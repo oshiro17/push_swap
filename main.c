@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
-/*   Updated: 2023/01/27 06:32:52 by noshiro          ###   ########.fr       */
+/*   Updated: 2023/01/27 18:33:25 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void put_data(t_data *data, int argc, char **argv)
 	data->str = NULL;
 	data->subject_num = NULL;
 	if (data->argc < 2)
-		error_exit();
+		exit(1);
 	else if (data->argc == 2)
 		data->index = 0;
 	else
@@ -41,11 +41,9 @@ int	main(int argc, char const *argv[])
 	make_number_arry(&data);
 	coordinate_compression(&data);
 	put_stack(data, &a_stack);	
-	t_stack *tmp ;
-	tmp = a_stack;
 	sort(&a_stack, &b_stack);
 	free_stack(&a_stack,&b_stack);
-	// system("leaks -q push_swap");
+	system("leaks -q push_swap");
     return (0);
 
 }
