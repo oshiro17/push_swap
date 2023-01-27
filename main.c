@@ -6,7 +6,7 @@
 /*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
-/*   Updated: 2023/01/27 18:33:25 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 18:36:15 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char const *argv[])
 	put_stack(data, &a_stack);	
 	sort(&a_stack, &b_stack);
 	free_stack(&a_stack,&b_stack);
-	system("leaks -q push_swap");
+	// system("leaks -q push_swap");
     return (0);
 
 }
