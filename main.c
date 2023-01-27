@@ -6,7 +6,7 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:55:32 by panti             #+#    #+#             */
-/*   Updated: 2023/01/28 02:03:51 by noshiro          ###   ########.fr       */
+/*   Updated: 2023/01/28 02:33:02 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	put_data(t_data *data, int argc, char **argv)
 	else if (data->argc == 2)
 	{
 		data->index = 0;
+		if (ft_atol(argv[1]) > INT_MAX || ft_atol(argv[1]) > INT_MIN)
+			error_exit();
 		if (check_num(argv[1]))
 			exit(1);
 	}
