@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   redix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
+/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 21:34:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/27 20:47:25 by panti            ###   ########.fr       */
+/*   Updated: 2023/01/27 23:45:36 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int get_log(int node_num)
+static int	get_log(int node_num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (0 < node_num)
@@ -25,39 +25,40 @@ static int get_log(int node_num)
 	return (i);
 }
 
-void radix_sort(t_stack **a, t_stack **b, int node_num)
+int	check_bina(t_stack **a, t_stack **b, int num, int digit)
 {
-	int digit;
-	int i;
 	int	pb_count;
-	t_stack *tmp;
+
+	pb_count = 0;
+	if ((num >> digit & 1) == 1)
+		ra(a, 'a');
+	else
+	{
+		pb(a, b, 'b');
+		pb_count++;
+	}
+	return (pb_count);
+}
+
+void	radix_sort(t_stack **a, t_stack **b, int node_num)
+{
+	int		digit;
+	int		i;
+	int		pb_count;
 
 	digit = 0;
-	i = 0;
-	while(digit < get_log(node_num))
+	while (digit < get_log(node_num))
 	{
+		i = 0;
 		pb_count = 0;
 		while (i < node_num)
 		{
-			if((((*a)->next->num) >> digit & 1) == 1 )
-				ra(a,'a');
-			else 
-			{
-				pb(a,b,'b');
-				pb_count++;
-			}
+			pb_count = (check_bina(a, b, (*a)->next->num, digit)) \
+			+ pb_count;
 			i++;
 		}
-		while(pb_count--)
-			pb(b,a,'a');
-		i = 0;
+		while (pb_count--)
+			pb(b, a, 'a');
 		digit++;
-	tmp = *a;
-    while(i < 10)
-    {
-        tmp=tmp->next;
-        i++;
-    }
-	i = 0;
 	}
 }

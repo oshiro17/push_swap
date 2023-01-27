@@ -5,6 +5,7 @@ SRCS		=	check_args.c	\
 				put_stack.c\
 				sort_stack.c\
 				sort.c\
+				sort3.c\
 				redix_sort.c\
 
 OBJS		=	$(SRCS:%.c=%.o)

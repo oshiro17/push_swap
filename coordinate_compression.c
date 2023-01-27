@@ -6,25 +6,25 @@
 /*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:40:49 by panti             #+#    #+#             */
-/*   Updated: 2023/01/27 06:18:07 by noshiro          ###   ########.fr       */
+/*   Updated: 2023/01/28 02:08:44 by noshiro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void compression(t_data *data)
+void	compression(t_data *data)
 {
-	int	i;
-	int j;
-	int number;
-	long *new_num;
+	int		i;
+	int		j;
+	int		number;
+	long	*new_num;
 
 	new_num = malloc(sizeof(long) * data->arry_count);
-	if(!new_num)
+	if (!new_num)
 		error_exit();
 	number = 0;
 	i = 0;
-	while(i < data->arry_count)
+	while (i < data->arry_count)
 	{
 		j = 0;
 		while (j < data->arry_count)
@@ -41,17 +41,17 @@ void compression(t_data *data)
 	data->subject_num = new_num;
 }
 
-void str_to_num(t_data *data)
+void	str_to_num(t_data *data)
 {
-	int index;
-	int i;
+	int	index;
+	int	i;
 
 	index = data->index;
 	data->subject_num = (long *)malloc(sizeof(long) * data->arry_count);
 	if (!data->subject_num)
 		error_exit();
 	i = 0;
-	while(data->str[index])
+	while (data->str[index])
 	{
 		data->subject_num[i] = ft_atol(data->str[index]);
 		index++;
@@ -59,12 +59,12 @@ void str_to_num(t_data *data)
 	}
 	if (data->index == 0)
 		free_char_arry((char **)data->str);
-	return;
+	return ;
 }
 
 void	coordinate_compression(t_data *data)
 {
 	str_to_num(data);
 	compression(data);
-	return;
+	return ;
 }
