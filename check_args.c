@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noshiro <noshiro@student.42.fr>            +#+  +:+       +#+        */
+/*   By: panti <panti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 04:55:06 by noshiro           #+#    #+#             */
-/*   Updated: 2023/01/27 05:20:22 by noshiro          ###   ########.fr       */
+/*   Updated: 2023/01/27 16:26:28 by panti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void    check_str(t_data *data)
     while(data->str[index])
     {
         num[i] = ft_atol(data->str[index]);
-        if (num[i] >= INT_MAX || num[i] <= INT_MIN)
+        if (num[i] > INT_MAX || num[i] < INT_MIN)
 			error_exit();
 		i++;
         index++;
